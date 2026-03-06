@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<img src="https://sdgs.cycu.edu.tw/wp-content/uploads/%E4%B8%AD%E5%8E%9Flogo.png" alt="示例圖片">
-<p>參考 GitHub Pages 官方文件：<a href="https://pages.github.com/" target="_blank">點此查看</a></p>
-<style>
-    body { font-family: Arial, sans-serif; text-align: center; }
-    h1 { color: blue; }
-</style>
-    <head>
+<script src="https://sdgs.cycu.edu.tw/wp-content/uploads/%E4%B8%AD%E5%8E%9Flogo.png"></script>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的第一個 GitHub Pages 網站</title>
+    <style>
+    body { font-family: Arial, sans-serif; text-align: center; }
+    h1 { color: blue; }
+</style>
 </head>
 <body>
     <h1>歡迎來到我的網站！</h1>
     <p>這是我的第一個 GitHub Pages 部署的網站。</p>
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <button @click="changeMessage">點我改變訊息</button>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    message: "Hello Vue!"
+                };
+            },
+            methods: {
+                changeMessage() {
+                    this.message = "訊息已改變！";
+                }
+            }
+        }).mount("#app");
+    </script>
 </body>
 </html>
